@@ -89,7 +89,7 @@ func postJson(trip Trip) int8 {
 	req, _ := http.NewRequest("POST", url, tripReader)
 	req.Header.Add("content-type", "application/json")
 	res, _ := http.DefaultClient.Do(req)
-	if res.Status == "HTTP/1.1 200 OK" {
+	if res.Status != "HTTP/1.1 200 OK" {
 		println(res.Status)
 		os.Exit(-1)
 	}
